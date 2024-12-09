@@ -34,7 +34,7 @@ config.keys = {
         action = act.CloseCurrentPane { confirm = false }
     },
     --- Open a pane to the right - this works well on my remapped moonlander
-    --- It needs work on my laptop :)
+    --- needs work on my laptop :)
     {
         key = '(',
         mods = 'LEADER',
@@ -70,9 +70,27 @@ config.keys = {
         key = 'l',
         mods = 'LEADER',
         action = act.ActivatePaneDirection "Right"
+    },
+    --- Copy, Cut and Paste
+    --- NOTE: to get this to work correctly in neovim, I also had to add the
+    --- following line to my neovim configuration:
+    --- vim.opt.clipboard:append { 'unnamedplus' }
+    {
+        key = 'c',
+        mods = 'CMD',
+        action = act.CopyTo 'ClipboardAndPrimarySelection'
+    },
+    { key ='v', mods = 'CMD', action = act.PasteFrom 'Clipboard' },
+    { key ='v', mods = 'CMD', action = act.PasteFrom 'PrimarySelection' },
+    {
+        key = 'x',
+        mods = 'CMD',
+        action = act.Multiple{
+            act.CopyTo 'ClipboardAndPrimarySelection',
+            act.ClearScrollback 'ScrollbackAndViewPort'
+        }
     }
 }
-
 
 -- and finally, return the configuration to wezterm
 return config
