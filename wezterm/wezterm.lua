@@ -87,7 +87,7 @@ config.keys = {
         mods = 'CMD',
         action = act.Multiple{
             act.CopyTo 'ClipboardAndPrimarySelection',
-            act.ClearScrollback 'ScrollbackAndViewPort'
+            act.ClearScrollback 'ScrollbackAndViewport'
         }
     }
 }
