@@ -36,7 +36,7 @@ config.keys = {
     --- Open a pane to the right - this works well on my remapped moonlander
     --- needs work on my laptop :)
     {
-        key = '(',
+        key = ']',
         mods = 'LEADER',
         action = act.SplitPane {
             direction = 'Right'
